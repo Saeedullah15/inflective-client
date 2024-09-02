@@ -7,6 +7,7 @@ import ErrorPage from "../pages/error/ErrorPage";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import MyQueries from "../pages/my-queries/MyQueries";
+import QueryDetails from "../pages/query-details/QueryDetails";
 import Register from "../pages/register/Register";
 import PrivateRoute from "./PrivateRoute";
 
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
             {
                 path: "/addQuery",
                 element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
+            },
+            {
+                path: "/queryDetails/:id",
+                element: <QueryDetails></QueryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
             }
         ]
     },

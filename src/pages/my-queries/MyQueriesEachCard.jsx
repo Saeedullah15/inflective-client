@@ -12,7 +12,7 @@ const MyQueriesEachCard = ({ query }) => {
                 <p>{UserName}</p>
                 <p>{currentDate}</p>
                 <div className="card-actions justify-end">
-                    <Link to={``}>
+                    <Link to={`/queryDetails/${_id}`}>
                         <button className="btn btn-info">View Details</button>
                     </Link>
                     <button className="btn btn-success">Update</button>
