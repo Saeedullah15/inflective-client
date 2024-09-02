@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from './Banner';
+import RecentQueries from './RecentQueries';
+import Slider from './Slider';
 
 const Home = () => {
     return (
         <div>
-            <h3>this is home</h3>
+            <Slider></Slider>
+            <Banner></Banner>
+            <RecentQueries></RecentQueries>
         </div>
     );
 };
