@@ -1,6 +1,8 @@
+import { updateProfile } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import auth from '../../firebase/firebase.config';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
@@ -21,6 +23,16 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: photo
+                })
+                    .then(() => {
+                        // profile updated
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
 
                 Swal.fire({
                     title: "Success",

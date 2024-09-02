@@ -1,8 +1,40 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext } from 'react';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddQuery = () => {
+    const { user } = useContext(AuthContext);
+    const { displayName, email, photoURL, } = user;
+    const currentDate = new Date();
+    const recommendationCount = 0;
+
     const handleAddQuery = (e) => {
         e.preventDefault();
+
+        const form = e.target;
+        const ProductName = form.ProductName.value;
+        const ProductBrand = form.ProductBrand.value;
+        const ProductImage = form.ProductImage.value;
+        const QueryTitle = form.QueryTitle.value;
+        const Reason = form.Reason.value;
+        // console.log(ProductName, ProductBrand, ProductImage, QueryTitle, Reason);
+
+        const newQueryInfo = { ProductName, ProductBrand, ProductImage, QueryTitle, Reason, UserName: displayName, UserEmail: email, UserImage: photoURL, currentDate, recommendationCount };
+
+        axios.post("http://localhost:5000/addQuery", newQueryInfo)
+            .then(res => {
+                console.log(res.data);
+
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Success",
+                        text: "You have successfully added your query!",
+                        icon: "success"
+                    });
+                    form.reset();
+                }
+            })
     }
 
     return (
