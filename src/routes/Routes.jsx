@@ -9,6 +9,7 @@ import Login from "../pages/login/Login";
 import MyQueries from "../pages/my-queries/MyQueries";
 import QueryDetails from "../pages/query-details/QueryDetails";
 import Register from "../pages/register/Register";
+import UpdateMyQuery from "../pages/update-my-query/UpdateMyQuery";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
             {
                 path: "/queryDetails/:id",
                 element: <QueryDetails></QueryDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
+            },
+            {
+                path: "/updateMyQuery/:id",
+                element: <UpdateMyQuery></UpdateMyQuery>,
                 loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
             }
         ]

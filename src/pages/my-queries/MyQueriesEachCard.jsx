@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyQueriesEachCard = ({ query }) => {
-    console.log(query);
+const MyQueriesEachCard = ({ query, handleDeleteQuery }) => {
+    // console.log(query);
     const { _id, QueryTitle, UserName, currentDate } = query;
 
     return (
@@ -15,8 +15,10 @@ const MyQueriesEachCard = ({ query }) => {
                     <Link to={`/queryDetails/${_id}`}>
                         <button className="btn btn-info">View Details</button>
                     </Link>
-                    <button className="btn btn-success">Update</button>
-                    <button className="btn btn-warning">Delete</button>
+                    <Link to={`/updateMyQuery/${_id}`}>
+                        <button className="btn btn-success">Update</button>
+                    </Link>
+                    <button onClick={() => handleDeleteQuery(_id)} className="btn btn-warning">Delete</button>
                 </div>
             </div>
         </div>
