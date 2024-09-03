@@ -1,13 +1,15 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
+import EachRecommendation from './EachRecommendation';
 
 const QueryDetails = () => {
     const data = useLoaderData();
     const { user } = useContext(AuthContext);
     const [recomCount, setRecomCount] = useState(data.recommendationCount);
+    const [allRecommendations, setAllRecommendations] = useState([]);
     const { displayName, email } = user;
     const recommendationCurrentDate = new Date().toLocaleString();
 
@@ -62,6 +64,17 @@ const QueryDetails = () => {
             })
     }
 
+    useEffect(() => {
+        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`)
+            .then(res => {
+                console.log(res.data);
+                setAllRecommendations(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, [])
+
     return (
         <div className='text-center'>
             <div>
@@ -108,8 +121,16 @@ const QueryDetails = () => {
                 </div>
             </div>
 
-            <div>
+            <div className='mb-20'>
                 <h2 className='font-bold mb-10'>All Recommendations</h2>
+                <div className='flex justify-center items-center flex-wrap'>
+                    {
+                        allRecommendations.map(eachRecommendation => <EachRecommendation
+                            key={eachRecommendation._id}
+                            eachRecommendation={eachRecommendation}
+                        ></EachRecommendation>)
+                    }
+                </div>
             </div>
         </div>
     );
