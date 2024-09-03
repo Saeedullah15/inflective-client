@@ -58,9 +58,13 @@ const AddQuery = () => {
                     <form onSubmit={handleAddQuery} className="card-body">
                         <div className="form-control space-y-4">
                             <input type="text" name='ProductName' placeholder="Product Name" className="input input-bordered" />
+
                             <input type="text" name='ProductBrand' placeholder="Product Brand" className="input input-bordered" />
+
                             <input type="text" name='ProductImage' placeholder="Product Image(url)" className="input input-bordered" />
+
                             <input type="text" name='QueryTitle' placeholder="Query Title" className="input input-bordered" />
+
                             <textarea name="Reason" id="" placeholder="Boycotting Reason Details" cols="30" rows="5" className="border border-gray-300 rounded-lg p-2"></textarea>
                         </div>
 
