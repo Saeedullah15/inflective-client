@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import App from "../App";
 import AddQuery from "../pages/add-query/AddQuery";
+import AllQueries from "../pages/all-queries/AllQueries";
 import ErrorPage from "../pages/error/ErrorPage";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
             {
                 path: "/addQuery",
                 element: <PrivateRoute><AddQuery></AddQuery></PrivateRoute>
+            },
+            {
+                path: "/allQueries",
+                element: <AllQueries></AllQueries>,
+                loader: () => fetch("http://localhost:5000/allQueries")
             },
             {
                 path: "/queryDetails/:id",

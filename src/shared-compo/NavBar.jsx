@@ -10,7 +10,7 @@ const NavBar = () => {
 
     const navItems = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/queries">Queries</NavLink></li>
+        <li><NavLink to="/allQueries">Queries</NavLink></li>
         {
             user && <ul className='flex'>
                 <li><NavLink to="/RecommendationsForMe">Recommendations For Me</NavLink></li>
