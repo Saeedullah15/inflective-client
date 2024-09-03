@@ -10,6 +10,7 @@ import Login from "../pages/login/Login";
 import MyQueries from "../pages/my-queries/MyQueries";
 import MyRecommendations from "../pages/my-recommendations/MyRecommendations";
 import QueryDetails from "../pages/query-details/QueryDetails";
+import RecommendationsForMe from "../pages/recommendations-for-me/RecommendationsForMe";
 import Register from "../pages/register/Register";
 import UpdateMyQuery from "../pages/update-my-query/UpdateMyQuery";
 import PrivateRoute from "./PrivateRoute";
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             {
                 path: "/MyRecommendations",
                 element: <MyRecommendations></MyRecommendations>
+            },
+            {
+                path: "/RecommendationsForMe",
+                element: <RecommendationsForMe></RecommendationsForMe>
             }
         ]
     },

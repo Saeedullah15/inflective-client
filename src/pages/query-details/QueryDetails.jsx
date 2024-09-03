@@ -15,6 +15,17 @@ const QueryDetails = () => {
 
     const { ProductBrand, ProductImage, ProductName, QueryTitle, Reason, UserEmail, UserImage, UserName, currentDate, recommendationCount, _id } = data;
 
+    useEffect(() => {
+        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`)
+            .then(res => {
+                console.log(res.data);
+                setAllRecommendations(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, [])
+
     const handleAddRecommendation = (e) => {
         e.preventDefault();
 
@@ -63,17 +74,6 @@ const QueryDetails = () => {
                 console.log(error);
             })
     }
-
-    useEffect(() => {
-        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`)
-            .then(res => {
-                console.log(res.data);
-                setAllRecommendations(res.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
 
     return (
         <div className='text-center'>
