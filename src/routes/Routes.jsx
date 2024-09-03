@@ -8,6 +8,7 @@ import ErrorPage from "../pages/error/ErrorPage";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import MyQueries from "../pages/my-queries/MyQueries";
+import MyRecommendations from "../pages/my-recommendations/MyRecommendations";
 import QueryDetails from "../pages/query-details/QueryDetails";
 import Register from "../pages/register/Register";
 import UpdateMyQuery from "../pages/update-my-query/UpdateMyQuery";
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: "/updateMyQuery/:id",
                 element: <UpdateMyQuery></UpdateMyQuery>,
                 loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
+            },
+            {
+                path: "/MyRecommendations",
+                element: <MyRecommendations></MyRecommendations>
             }
         ]
     },
