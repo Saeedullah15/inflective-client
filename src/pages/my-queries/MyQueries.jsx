@@ -11,7 +11,7 @@ const MyQueries = () => {
     console.log(queries);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myQueries?email=${user.email}`)
+        axios.get(`http://localhost:5000/myQueries?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setQueries(res.data);
@@ -29,7 +29,7 @@ const MyQueries = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteQuery/${_id}`)
+                axios.delete(`http://localhost:5000/deleteQuery/${_id}`, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
 

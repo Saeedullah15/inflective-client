@@ -3,7 +3,11 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
+
+    if (loading) {
+        return <div className='flex justify-center mb-10'><span className="loading loading-spinner text-success"></span></div>
+    }
 
     if (user) {
         return children;

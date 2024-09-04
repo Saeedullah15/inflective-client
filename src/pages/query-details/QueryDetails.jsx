@@ -16,7 +16,7 @@ const QueryDetails = () => {
     const { ProductBrand, ProductImage, ProductName, QueryTitle, Reason, UserEmail, UserImage, UserName, currentDate, recommendationCount, _id } = data;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`)
+        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setAllRecommendations(res.data);
@@ -38,7 +38,7 @@ const QueryDetails = () => {
 
         const newRecommendation = { RecommendationTitle, RecommendedProductName, RecommendedProductImage, RecommendationReason, QueryId: _id, QueryTitle, ProductName, UserEmail, UserName, RecommenderEmail: email, RecommenderName: displayName, recommendationCurrentDate };
 
-        axios.post("http://localhost:5000/addRecommendation", newRecommendation)
+        axios.post("http://localhost:5000/addRecommendation", newRecommendation, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
 
@@ -61,7 +61,7 @@ const QueryDetails = () => {
 
             })
 
-        axios.put(`http://localhost:5000/updateRecommendationCount/${_id}`, recommendationCount)
+        axios.put(`http://localhost:5000/updateRecommendationCount/${_id}`, recommendationCount, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
 

@@ -10,7 +10,7 @@ const MyRecommendations = () => {
     let count = 1;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myRecommendations?email=${user.email}`)
+        axios.get(`http://localhost:5000/myRecommendations?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setMyRecommendations(res.data);
@@ -31,7 +31,7 @@ const MyRecommendations = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteRecommendations/${_id}`)
+                axios.delete(`http://localhost:5000/deleteRecommendations/${_id}`, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
 

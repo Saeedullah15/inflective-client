@@ -28,7 +28,7 @@ const UpdateMyQuery = () => {
 
         const updateQueryInfo = { ProductName, ProductBrand, ProductImage, QueryTitle, Reason, currentDate };
 
-        axios.put(`http://localhost:5000/updateQuery/${_id}`, updateQueryInfo)
+        axios.put(`http://localhost:5000/updateQuery/${_id}`, updateQueryInfo, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
 

@@ -9,7 +9,7 @@ const RecommendationsForMe = () => {
     let count = 1;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendations?email=${user.email}`)
+        axios.get(`http://localhost:5000/recommendations?email=${user.email}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 setRecommendations(res.data);

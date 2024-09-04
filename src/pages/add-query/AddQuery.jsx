@@ -23,7 +23,7 @@ const AddQuery = () => {
 
         const newQueryInfo = { ProductName, ProductBrand, ProductImage, QueryTitle, Reason, UserName: displayName, UserEmail: email, UserImage: photoURL, currentDate, recommendationCount };
 
-        axios.post("http://localhost:5000/addQuery", newQueryInfo)
+        axios.post("http://localhost:5000/addQuery", newQueryInfo, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
 

@@ -48,21 +48,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "/queryDetails/:id",
-                element: <QueryDetails></QueryDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
+                element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`, { credentials: "include" })
             },
             {
                 path: "/updateMyQuery/:id",
-                element: <UpdateMyQuery></UpdateMyQuery>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`)
+                element: <PrivateRoute><UpdateMyQuery></UpdateMyQuery></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`, { credentials: "include" })
             },
             {
                 path: "/MyRecommendations",
-                element: <MyRecommendations></MyRecommendations>
+                element: <PrivateRoute><MyRecommendations></MyRecommendations></PrivateRoute>
             },
             {
                 path: "/RecommendationsForMe",
-                element: <RecommendationsForMe></RecommendationsForMe>
+                element: <PrivateRoute><RecommendationsForMe></RecommendationsForMe></PrivateRoute>
             }
         ]
     },
