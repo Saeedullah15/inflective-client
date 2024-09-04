@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Faq from './Faq';
 import RecentQueries from './RecentQueries';
 import Slider from './Slider';
+import TrustedBrand from './TrustedBrand';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <RecentQueries></RecentQueries>
             <Faq></Faq>
+            <TrustedBrand></TrustedBrand>
         </div>
     );
 };
