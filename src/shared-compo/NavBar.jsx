@@ -119,10 +119,10 @@ const NavBar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <a onClick={handleLogOut} className="btn">Log Out</a>
+                            <a onClick={handleLogOut} className="btn btn-primary">Log Out</a>
                         </>
                         :
-                        <Link className='btn' to="/login">Login</Link>
+                        <Link className='btn btn-primary' to="/login">Login</Link>
                 }
             </div>
         </div>

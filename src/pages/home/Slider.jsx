@@ -12,11 +12,11 @@ import 'swiper/css/scrollbar';
 import s1 from "../../assets/s1.jpg";
 import s2 from "../../assets/s2.jpg";
 import s3 from "../../assets/s3.jpg";
-import s4 from "../../assets/s4.jpg";
+// import s4 from "../../assets/s4.jpg";
 
 const Slider = () => {
     return (
-        <Swiper
+        <Swiper className='mt-10'
             // install Swiper modules
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             // spaceBetween={50}
@@ -30,7 +30,9 @@ const Slider = () => {
             <SwiperSlide><img src={s1} alt="" /></SwiperSlide>
             <SwiperSlide><img src={s2} alt="" /></SwiperSlide>
             <SwiperSlide><img src={s3} alt="" /></SwiperSlide>
-            <SwiperSlide><img src={s4} alt="" /></SwiperSlide>
+            <SwiperSlide><img src={s1} alt="" /></SwiperSlide>
+            <SwiperSlide><img src={s2} alt="" /></SwiperSlide>
+            <SwiperSlide><img src={s3} alt="" /></SwiperSlide>
         </Swiper>
     );
 };
