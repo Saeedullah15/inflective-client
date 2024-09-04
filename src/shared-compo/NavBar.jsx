@@ -69,8 +69,8 @@ const NavBar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a href='/' className="text-2xl font-bold flex justify-center items-center">
-                    <img src={logo} className='w-20' alt="" />
+                <a href='/' className="text-3xl font-bold flex justify-center items-center">
+                    <img src={logo} className='w-6 mr-2' alt="" />
                     Inflective
                 </a>
             </div>
@@ -111,7 +111,16 @@ const NavBar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <a onClick={handleLogOut} className="btn">Log Out</a>
+                        <>
+                            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <div className="avatar mr-2">
+                                    <div className="w-12 rounded-full">
+                                        <img src={user?.photoURL} />
+                                    </div>
+                                </div>
+                            </div>
+                            <a onClick={handleLogOut} className="btn">Log Out</a>
+                        </>
                         :
                         <Link className='btn' to="/login">Login</Link>
                 }
