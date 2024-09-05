@@ -16,13 +16,13 @@ const QueryDetails = () => {
     const { ProductBrand, ProductImage, ProductName, QueryTitle, Reason, UserEmail, UserImage, UserName, currentDate, recommendationCount, _id } = data;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/allRecommendations?queryId=${_id}`, { withCredentials: true })
+        axios.get(`https://inflective-server.vercel.app/allRecommendations?queryId=${_id}`, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setAllRecommendations(res.data);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }, [])
 
@@ -38,9 +38,9 @@ const QueryDetails = () => {
 
         const newRecommendation = { RecommendationTitle, RecommendedProductName, RecommendedProductImage, RecommendationReason, QueryId: _id, QueryTitle, ProductName, UserEmail, UserName, RecommenderEmail: email, RecommenderName: displayName, recommendationCurrentDate };
 
-        axios.post("http://localhost:5000/addRecommendation", newRecommendation, { withCredentials: true })
+        axios.post("https://inflective-server.vercel.app/addRecommendation", newRecommendation, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
 
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -52,7 +52,7 @@ const QueryDetails = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 Swal.fire({
                     title: "Error",
                     text: `${error.code || error.message}`,
@@ -61,9 +61,9 @@ const QueryDetails = () => {
 
             })
 
-        axios.put(`http://localhost:5000/updateRecommendationCount/${_id}`, recommendationCount, { withCredentials: true })
+        axios.put(`https://inflective-server.vercel.app/updateRecommendationCount/${_id}`, recommendationCount, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
 
                 if (res.data.modifiedCount > 0) {
                     let newRecommendationCount = recomCount + 1;
@@ -71,7 +71,7 @@ const QueryDetails = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

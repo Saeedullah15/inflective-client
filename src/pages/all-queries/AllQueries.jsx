@@ -9,16 +9,16 @@ const AllQueries = () => {
     const [queries, setQueries] = useState(data);
     const [searchText, setSearchText] = useState('');
     const [layout, setLayout] = useState("lg:grid-cols-3 md:grid-cols-2 grid-cols-1");
-    console.log(data);
+    // console.log(data);
 
     const handleSearch = () => {
-        axios.get(`http://localhost:5000/allQueries?searchText=${searchText}`)
+        axios.get(`https://inflective-server.vercel.app/allQueries?searchText=${searchText}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setQueries(res.data);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

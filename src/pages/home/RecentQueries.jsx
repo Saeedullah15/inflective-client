@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 
 const RecentQueries = () => {
     const [queries, setQueries] = useState([]);
-    console.log(queries);
+    // console.log(queries);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/allQueries")
+        axios.get("https://inflective-server.vercel.app/allQueries")
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setQueries(res.data);
             })
     }, [])

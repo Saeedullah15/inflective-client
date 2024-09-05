@@ -33,7 +33,7 @@ const NavBar = () => {
                 navigate("/");
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
 
                 Swal.fire({
                     title: "Error",

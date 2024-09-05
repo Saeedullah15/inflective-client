@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllQueriesEachCard = ({ eachData }) => {
-    console.log(eachData);
+    // console.log(eachData);
 
     const { ProductImage, QueryTitle, ProductName, ProductBrand, Reason, currentDate, UserName, UserImage, recommendationCount, _id } = eachData;
 

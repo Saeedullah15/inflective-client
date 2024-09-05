@@ -5,17 +5,17 @@ import { AuthContext } from '../../providers/AuthProvider';
 const RecommendationsForMe = () => {
     const { user } = useContext(AuthContext);
     const [recommendations, setRecommendations] = useState([]);
-    console.log(recommendations);
+    // console.log(recommendations);
     let count = 1;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendations?email=${user.email}`, { withCredentials: true })
+        axios.get(`https://inflective-server.vercel.app/recommendations?email=${user.email}`, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setRecommendations(res.data);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }, [])
 

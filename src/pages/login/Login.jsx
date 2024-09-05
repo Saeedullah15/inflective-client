@@ -14,12 +14,12 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         signInUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 Swal.fire({
                     title: "Success",
@@ -30,7 +30,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
 
                 Swal.fire({
                     title: "Error",
@@ -44,7 +44,7 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 Swal.fire({
                     title: "Success",
@@ -55,7 +55,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
 
                 Swal.fire({
                     title: "Error",

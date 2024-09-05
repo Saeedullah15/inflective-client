@@ -28,9 +28,9 @@ const UpdateMyQuery = () => {
 
         const updateQueryInfo = { ProductName, ProductBrand, ProductImage, QueryTitle, Reason, currentDate };
 
-        axios.put(`http://localhost:5000/updateQuery/${_id}`, updateQueryInfo, { withCredentials: true })
+        axios.put(`https://inflective-server.vercel.app/updateQuery/${_id}`, updateQueryInfo, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
 
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
@@ -42,13 +42,12 @@ const UpdateMyQuery = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 Swal.fire({
                     title: "Error",
                     text: `${error.code || error.message}`,
                     icon: "error"
                 });
-
             })
     }
 

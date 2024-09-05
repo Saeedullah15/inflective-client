@@ -9,12 +9,12 @@ import MyQueriesEachCard from './MyQueriesEachCard';
 const MyQueries = () => {
     const { user } = useContext(AuthContext);
     const [queries, setQueries] = useState([]);
-    console.log(queries.length);
+    // console.log(queries.length);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myQueries?email=${user.email}`, { withCredentials: true })
+        axios.get(`https://inflective-server.vercel.app/myQueries?email=${user.email}`, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setQueries(res.data);
             })
     }, [])
@@ -30,9 +30,9 @@ const MyQueries = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteQuery/${_id}`, { withCredentials: true })
+                axios.delete(`https://inflective-server.vercel.app/deleteQuery/${_id}`, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
 
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -46,7 +46,7 @@ const MyQueries = () => {
                         setQueries(remaining);
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
 
                         Swal.fire({
                             title: "Error",

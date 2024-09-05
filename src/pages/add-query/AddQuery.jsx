@@ -7,7 +7,7 @@ const AddQuery = () => {
     const { user } = useContext(AuthContext);
     const { displayName, email, photoURL, } = user;
     const currentDate = new Date().toLocaleString();
-    console.log(currentDate);
+    // console.log(currentDate);
     const recommendationCount = 0;
 
     const handleAddQuery = (e) => {
@@ -23,9 +23,9 @@ const AddQuery = () => {
 
         const newQueryInfo = { ProductName, ProductBrand, ProductImage, QueryTitle, Reason, UserName: displayName, UserEmail: email, UserImage: photoURL, currentDate, recommendationCount };
 
-        axios.post("http://localhost:5000/addQuery", newQueryInfo, { withCredentials: true })
+        axios.post("https://inflective-server.vercel.app/addQuery", newQueryInfo, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
 
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -37,7 +37,7 @@ const AddQuery = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 Swal.fire({
                     title: "Error",
                     text: `${error.code || error.message}`,

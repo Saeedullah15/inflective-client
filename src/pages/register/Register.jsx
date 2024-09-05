@@ -17,12 +17,12 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        // console.log(name, email, password, photo);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photo
@@ -31,7 +31,7 @@ const Register = () => {
                         // profile updated
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
                     })
 
                 Swal.fire({
@@ -43,7 +43,7 @@ const Register = () => {
                 navigate("/");
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
 
                 Swal.fire({
                     title: "Error",

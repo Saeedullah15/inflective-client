@@ -1,7 +1,7 @@
 import React from 'react';
 
 const EachRecommendation = ({ eachRecommendation }) => {
-    console.log(eachRecommendation);
+    // console.log(eachRecommendation);
 
     const { RecommendedProductImage, recommendationCurrentDate, RecommendedProductName, RecommendationTitle, RecommendationReason } = eachRecommendation;
 

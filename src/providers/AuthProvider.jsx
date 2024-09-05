@@ -13,27 +13,27 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser);
+            // console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
 
             const loggedUserEmail = { email: currentUser?.email };
             if (currentUser) {
-                axios.post("http://localhost:5000/jwt", loggedUserEmail, { withCredentials: true })
+                axios.post("https://inflective-server.vercel.app/jwt", loggedUserEmail, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
                     })
             }
             else {
-                axios.post("http://localhost:5000/logout", loggedUserEmail, { withCredentials: true })
+                axios.post("https://inflective-server.vercel.app/logout", loggedUserEmail, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
                     })
             }
         })

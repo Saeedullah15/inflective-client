@@ -6,17 +6,17 @@ import { AuthContext } from '../../providers/AuthProvider';
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
     const [myRecommendations, setMyRecommendations] = useState([]);
-    console.log(myRecommendations);
+    // console.log(myRecommendations);
     let count = 1;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/myRecommendations?email=${user.email}`, { withCredentials: true })
+        axios.get(`https://inflective-server.vercel.app/myRecommendations?email=${user.email}`, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setMyRecommendations(res.data);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }, [])
 
@@ -31,9 +31,9 @@ const MyRecommendations = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/deleteRecommendations/${_id}`, { withCredentials: true })
+                axios.delete(`https://inflective-server.vercel.app/deleteRecommendations/${_id}`, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
 
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -50,7 +50,7 @@ const MyRecommendations = () => {
 
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
 
                         Swal.fire({
                             title: "Error",

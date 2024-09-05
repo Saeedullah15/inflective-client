@@ -44,17 +44,17 @@ const router = createBrowserRouter([
             {
                 path: "/allQueries",
                 element: <AllQueries></AllQueries>,
-                loader: () => fetch("http://localhost:5000/allQueries")
+                loader: () => fetch("https://inflective-server.vercel.app/allQueries")
             },
             {
                 path: "/queryDetails/:id",
                 element: <PrivateRoute><QueryDetails></QueryDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`, { credentials: "include" })
+                loader: ({ params }) => fetch(`https://inflective-server.vercel.app/queryDetails/${params.id}`, { credentials: "include" })
             },
             {
                 path: "/updateMyQuery/:id",
                 element: <PrivateRoute><UpdateMyQuery></UpdateMyQuery></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/queryDetails/${params.id}`, { credentials: "include" })
+                loader: ({ params }) => fetch(`https://inflective-server.vercel.app/queryDetails/${params.id}`, { credentials: "include" })
             },
             {
                 path: "/MyRecommendations",
