@@ -27,10 +27,10 @@ const RecommendationsForMe = () => {
                     <thead>
                         <tr>
                             <th>Serial</th>
-                            <th>Title</th>
-                            <th>Product Name</th>
+                            <th>Recommendation Title</th>
+                            <th>Recommended Product Name</th>
                             <th>Recommended By</th>
-                            <th>Recommendation Time </th>
+                            <th>Recommended on</th>
                         </tr>
                     </thead>
                     <tbody>

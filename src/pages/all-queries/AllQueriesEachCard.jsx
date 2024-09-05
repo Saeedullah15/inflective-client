@@ -9,16 +9,19 @@ const AllQueriesEachCard = ({ eachData }) => {
     return (
         <div className="card card-compact bg-base-100 shadow-xl mb-20">
             <figure>
-                <img src={UserImage} alt="Shoes" />
+                <img src={UserImage} className='w-full h-40' alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{QueryTitle}</h2>
-                <p>{ProductName}</p>
-                <p>{ProductBrand}</p>
-                <p>{Reason}</p>
-                <p>{currentDate}</p>
-                <p>{UserName}</p>
-                <p>{recommendationCount}</p>
+                <h2 className="font-bold">{QueryTitle}</h2>
+                <hr className='' />
+                <img src={ProductImage} className='w-20 h-20' alt="" />
+                <p>Product Name: {ProductName}</p>
+                <p>Product Brand: {ProductBrand}</p>
+                <p>Boycotting Reason: {Reason}</p>
+                <hr />
+                <p>Posted On: {currentDate}</p>
+                <p>Posted By: {UserName}</p>
+                <p>Recommendation Count: {recommendationCount}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/queryDetails/${_id}`}>
                         <button className="btn btn-primary">Recommend</button>

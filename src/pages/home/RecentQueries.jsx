@@ -24,12 +24,14 @@ const RecentQueries = () => {
                         </figure>
                         <div className="card-body">
                             <h2 className="font-bold">{each.QueryTitle}</h2>
-                            <p>{each.ProductName}</p>
-                            <p>{each.ProductBrand}</p>
+                            <hr />
                             <img src={each.ProductImage} className='w-20 h-20' alt="" />
-                            <p>{each.Reason}</p>
-                            <p>{each.currentDate}</p>
-                            <p>{each.UserName}</p>
+                            <p>Product Name: {each.ProductName}</p>
+                            <p>Product Brand: {each.ProductBrand}</p>
+                            <p>Boycotting Reason: {each.Reason}</p>
+                            <hr />
+                            <p>Posted On: {each.currentDate}</p>
+                            <p>Posted By: {each.UserName}</p>
                         </div>
                     </div>)
                 }

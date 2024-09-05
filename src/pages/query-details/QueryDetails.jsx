@@ -76,54 +76,59 @@ const QueryDetails = () => {
     }
 
     return (
-        <div className='text-center'>
-            <div>
-                <h2 className='font-bold'>Query Information:</h2>
-                <img src={ProductImage} alt="" />
-                <h3>{ProductBrand}</h3>
-                <h3>{ProductName}</h3>
-                <h3>{QueryTitle}</h3>
-                <h3>{Reason}</h3>
-                <h2>{currentDate}</h2>
-                <h3>Recommendation Count: {recomCount}</h3>
-            </div>
+        <div className='max-w-6xl mx-auto mt-10'>
+            <div className='flex gap-20'>
+                {/* query info div */}
+                <div className='w-1/2'>
+                    <div className=''>
+                        <h2 className='font-bold text-2xl mb-3'>Query Information:</h2>
+                        <img src={ProductImage} className='w-1/4' alt="" />
+                        <h3 className='text-xl font-bold'>{QueryTitle}</h3>
+                        <h3>Product Brand: {ProductBrand}</h3>
+                        <h3>Product Name: {ProductName}</h3>
+                        <h3>Boycotting Reason: {Reason}</h3>
+                        <h2>Posted On: {currentDate}</h2>
+                        <h3>Recommendation Count: {recomCount}</h3>
+                    </div>
+                    <div className='mt-10'>
+                        <h2 className='font-bold text-2xl mb-3'>Query Created By:</h2>
+                        <img className='w-20 h-20' src={UserImage} alt="" />
+                        <h3>{UserEmail}</h3>
+                        <h3>{UserName}</h3>
+                    </div>
+                </div>
 
-            <div>
-                <h2 className='font-bold'>Query Created By:</h2>
-                <h3>{UserEmail}</h3>
-                <h3>{UserName}</h3>
-                <img className='w-20 mx-auto' src={UserImage} alt="" />
-            </div>
+                {/* form div */}
+                <div className='w-1/2'>
+                    <div className="">
+                        <div className="card bg-base-100 shadow-2xl">
+                            <div className="text-center lg:text-left mt-8">
+                                <h1 className="text-3xl font-bold mb-4 text-center">Add Your Recommendation</h1>
+                            </div>
 
-            <div>
-                <div className="my-20">
-                    <div className="card bg-base-100 shadow-2xl w-1/2 mx-auto">
-                        <div className="text-center lg:text-left mt-8">
-                            <h1 className="text-3xl font-bold mb-4 text-center">Add Your Recommendation</h1>
+                            <form onSubmit={handleAddRecommendation} className="card-body">
+                                <div className="form-control space-y-4">
+                                    <input type="text" name='RecommendationTitle' placeholder="Recommendation Title" className="input input-bordered" />
+
+                                    <input type="text" name='RecommendedProductName' placeholder="Recommended Product Name" className="input input-bordered" />
+
+                                    <input type="text" name='RecommendedProductImage' placeholder="Recommended Product Image(url)" className="input input-bordered" />
+
+                                    <textarea name="RecommendationReason" id="" placeholder="Recommendation reason" cols="30" rows="5" className="border border-gray-300 rounded-lg p-2"></textarea>
+                                </div>
+
+                                <div className="form-control mt-6">
+                                    <button className="btn btn-primary">Add Recommendation</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <form onSubmit={handleAddRecommendation} className="card-body">
-                            <div className="form-control space-y-4">
-                                <input type="text" name='RecommendationTitle' placeholder="Recommendation Title" className="input input-bordered" />
-
-                                <input type="text" name='RecommendedProductName' placeholder="Recommended Product Name" className="input input-bordered" />
-
-                                <input type="text" name='RecommendedProductImage' placeholder="Recommended Product Image(url)" className="input input-bordered" />
-
-                                <textarea name="RecommendationReason" id="" placeholder="Recommendation reason" cols="30" rows="5" className="border border-gray-300 rounded-lg p-2"></textarea>
-                            </div>
-
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Add Recommendation</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
 
-            <div className='mb-20'>
-                <h2 className='font-bold mb-10'>All Recommendations</h2>
-                <div className='flex justify-center items-center flex-wrap'>
+            <div className='my-20'>
+                <h2 className='font-bold mb-10 text-3xl'>All Recommendations</h2>
+                <div className='space-y-4'>
                     {
                         allRecommendations.map(eachRecommendation => <EachRecommendation
                             key={eachRecommendation._id}

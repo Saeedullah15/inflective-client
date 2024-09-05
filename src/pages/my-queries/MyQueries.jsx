@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import b1 from "../../assets/b1.jpg";
 import { AuthContext } from '../../providers/AuthProvider';
 import MyQueriesEachCard from './MyQueriesEachCard';
 
 const MyQueries = () => {
     const { user } = useContext(AuthContext);
     const [queries, setQueries] = useState([]);
-    console.log(queries);
+    console.log(queries.length);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/myQueries?email=${user.email}`, { withCredentials: true })
@@ -60,20 +61,41 @@ const MyQueries = () => {
     return (
         <div className='my-20'>
             {/* add query banner section */}
-            <section className='flex justify-center'>
-                <Link to="/addQuery">
-                    <button className='btn btn-primary'>Add Query</button>
-                </Link>
+            <section className=''>
+                <div className='my-20 max-w-6xl mx-auto relative'>
+                    <img src={b1} className='w-full h-96 rounded-2xl' alt="" />
+                    <div className='absolute top-0 left-0 bg-gradient-to-r w-full h-full rounded-2xl from-[#27272a00] to-black flex justify-center items-center flex-col'>
+                        <h2 className='text-3xl font-bold mb-2 text-white'>
+                            Welcome to Inflective!
+                        </h2>
+                        <p className='text-xl mb-10 text-white'>Your Concern And Feedback Matters To Us, Add Your Valuable Query!</p>
+                        <Link to="/addQuery">
+                            <button className='btn btn-primary'>Add Query</button>
+                        </Link>
+                    </div>
+                </div>
             </section>
 
             {/* my query section */}
-            <section className='grid grid-cols-3 mt-10 max-w-7xl mx-auto gap-10'>
+            <section>
                 {
-                    queries.map(query => <MyQueriesEachCard
-                        key={query._id}
-                        query={query}
-                        handleDeleteQuery={handleDeleteQuery}
-                    ></MyQueriesEachCard>)
+                    queries.length === 0 ?
+                        <div className='flex justify-center items-center gap-2'>
+                            <h2 className='font-bold text-2xl'>You Currently Have No Queries!</h2>
+                            <Link to="/addQuery">
+                                <button className='link text-xl link-secondary'>Add Your Query</button>
+                            </Link>
+                        </div>
+                        :
+                        <div className='grid grid-cols-3 mt-10 max-w-7xl mx-auto gap-10'>
+                            {
+                                queries.map(query => <MyQueriesEachCard
+                                    key={query._id}
+                                    query={query}
+                                    handleDeleteQuery={handleDeleteQuery}
+                                ></MyQueriesEachCard>)
+                            }
+                        </div>
                 }
             </section>
         </div>

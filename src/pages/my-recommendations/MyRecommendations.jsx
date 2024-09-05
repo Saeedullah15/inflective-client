@@ -20,7 +20,7 @@ const MyRecommendations = () => {
             })
     }, [])
 
-    const handleDeleteRecommendation = (_id) => {
+    const handleDeleteRecommendation = (_id, QueryId) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -45,6 +45,9 @@ const MyRecommendations = () => {
 
                         const remaining = myRecommendations.filter(each => each._id !== _id);
                         setMyRecommendations(remaining);
+
+                        // decrease recommendation count api
+
                     })
                     .catch(error => {
                         console.log(error);
@@ -70,7 +73,7 @@ const MyRecommendations = () => {
                             <th>Serial</th>
                             <th>Title</th>
                             <th>Product Name</th>
-                            <th>Recommendation Time </th>
+                            <th>Recommendation Date & Time </th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -81,7 +84,7 @@ const MyRecommendations = () => {
                                 <td>{each.RecommendationTitle}</td>
                                 <td>{each.RecommendedProductName}</td>
                                 <td>{each.recommendationCurrentDate}</td>
-                                <td onClick={() => handleDeleteRecommendation(each._id)}
+                                <td onClick={() => handleDeleteRecommendation(each._id, each.QueryId)}
                                     className='cursor-pointer text-rose-600 font-bold'
                                 >Delete</td>
                             </tr>)
