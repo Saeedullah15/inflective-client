@@ -77,9 +77,9 @@ const QueryDetails = () => {
 
     return (
         <div className='max-w-6xl mx-auto mt-10'>
-            <div className='flex gap-20'>
+            <div className='flex flex-col md:flex-row gap-20'>
                 {/* query info div */}
-                <div className='w-1/2'>
+                <div className='md:w-1/2'>
                     <div className=''>
                         <h2 className='font-bold text-2xl mb-3'>Query Information:</h2>
                         <img src={ProductImage} className='w-1/4' alt="" />
@@ -99,7 +99,7 @@ const QueryDetails = () => {
                 </div>
 
                 {/* form div */}
-                <div className='w-1/2'>
+                <div className='md:w-1/2'>
                     <div className="">
                         <div className="card bg-base-100 shadow-2xl">
                             <div className="text-center lg:text-left mt-8">

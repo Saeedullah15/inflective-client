@@ -8,7 +8,7 @@ const AllQueries = () => {
     const data = useLoaderData();
     const [queries, setQueries] = useState(data);
     const [searchText, setSearchText] = useState('');
-    const [layout, setLayout] = useState("grid-cols-3");
+    const [layout, setLayout] = useState("lg:grid-cols-3 md:grid-cols-2 grid-cols-1");
     console.log(data);
 
     const handleSearch = () => {
@@ -25,7 +25,7 @@ const AllQueries = () => {
     return (
         <div className='mt-10 max-w-6xl mx-auto'>
             <div className='flex justify-between'>
-                <div className='flex space-x-2 w-1/2'>
+                <div className='flex space-x-2 w-full md:w-1/2'>
                     <input type="text"
                         onChange={(e) => {
                             setSearchText(e.target.value);
@@ -38,7 +38,7 @@ const AllQueries = () => {
                 </div>
 
                 {/* layout button */}
-                <div className='space-x-2'>
+                <div className='space-x-2 hidden lg:block'>
                     <button onClick={() => setLayout("grid-cols-2")} className='btn btn-outline btn-success'>
                         <TfiLayoutColumn2Alt className='text-xl' />
                     </button>
@@ -51,7 +51,7 @@ const AllQueries = () => {
                 </div>
             </div>
 
-            <section className={`grid ${layout} mt-10 gap-10`}>
+            <section className={`grid ${layout} my-10 gap-10`}>
                 {
                     queries.map(eachData => <AllQueriesEachCard
                         key={eachData._id}

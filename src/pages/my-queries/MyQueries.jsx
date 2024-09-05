@@ -59,10 +59,10 @@ const MyQueries = () => {
     }
 
     return (
-        <div className='my-20'>
+        <div className='my-5 lg:my-20'>
             {/* add query banner section */}
             <section className=''>
-                <div className='my-20 max-w-6xl mx-auto relative'>
+                <div className='lg:my-20 max-w-6xl mx-auto relative'>
                     <img src={b1} className='w-full h-96 rounded-2xl' alt="" />
                     <div className='absolute top-0 left-0 bg-gradient-to-r w-full h-full rounded-2xl from-[#27272a00] to-black flex justify-center items-center flex-col'>
                         <h2 className='text-3xl font-bold mb-2 text-white'>
@@ -87,7 +87,7 @@ const MyQueries = () => {
                             </Link>
                         </div>
                         :
-                        <div className='grid grid-cols-3 mt-10 max-w-7xl mx-auto gap-10'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 max-w-7xl mx-auto gap-10'>
                             {
                                 queries.map(query => <MyQueriesEachCard
                                     key={query._id}

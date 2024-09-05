@@ -7,7 +7,7 @@ const AllQueriesEachCard = ({ eachData }) => {
     const { ProductImage, QueryTitle, ProductName, ProductBrand, Reason, currentDate, UserName, UserImage, recommendationCount, _id } = eachData;
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl mb-20">
+        <div className="card card-compact bg-base-100 shadow-xl lg:mb-20">
             <figure>
                 <img src={UserImage} className='w-full h-40' alt="Shoes" />
             </figure>

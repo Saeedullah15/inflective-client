@@ -54,8 +54,8 @@ const UpdateMyQuery = () => {
 
     return (
         <div>
-            <div className="my-20">
-                <div className="card bg-base-100 shadow-2xl w-1/2 mx-auto">
+            <div className="my-5 lg:my-20">
+                <div className="card bg-base-100 shadow-2xl md:w-1/2 mx-auto">
                     <div className="text-center lg:text-left mt-8">
                         <h1 className="text-3xl font-bold mb-4 text-center">Want To Update Your Query?</h1>
                     </div>
