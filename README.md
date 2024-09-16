@@ -1,6 +1,6 @@
 # Inflective - Alternative Product Information System
 
-### Live Site URL: [https://inflective-61d79.web.app](https://inflective-61d79.web.app)
+### Live Site URL: [Inflective](https://inflective-61d79.firebaseapp.com)
 
 ## Overview
 
